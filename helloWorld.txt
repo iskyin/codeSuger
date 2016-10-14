@@ -1,0 +1,118 @@
+※	行内元素 :
+  • a b br i span input select
+※	块级元素 :
+  • div p h1 h2 h3 h4 form ul
+
+
+
+
+※	对网站的文件和资源进行优化
+ • 文件合并
+ • 文件最小化/文件压缩
+ • 使用CDN(内容分发网络)托管  chrome://net-internals/#dns
+ • 使用缓存 
+
+
+
+
+※	CSS盒子模型
+  • 内容(content)、填充(padding)、边框(border)、边界(margin)
+	
+
+
+
+※	link 和 @import 的区别
+  • link无兼容性，@import在CSS2.1以下浏览器不支持
+  • Link 支持使用javascript改变样式，@import不可
+
+
+
+※	css引入的方式
+  • 链入外部样式表 、内部样式表、导入外部样式表、内嵌样式
+
+
+
+
+ 通过对象字面量定义对象时，实际上不会调用Object构造函数
+ ※	使用new操作符调用构造函数经历的步骤
+      △ 创建一个新对象
+      △ 将构造函数的作用域赋给新对象（因此this就指向了这个新对象）
+      △ 执行构造函数中的代码（为这个新对象添加属性）
+      △ 返回新对象
+
+
+ var person={};
+ person["name"]="lenjee";
+ person["age"]=26;
+
+
+※	每个函数都有一个prototype(原型)属性，这个属性是个指针，指向一个对象。而这个对象的用途是包含可以由特定类型的所有实例共享的属性方法
+※ 理解原型对象：
+  • 创建一个新函数，就会根据一组特定的规则为该函数创建一个prototype属性，该属性会指向函数的原型对象。
+  • 默认情况下，所有原型对象都会自动获得一个constructor（构造函数）属性，这个属性包含一个指向prototype属性所在函数的指针
+
+※ 注：arguments.callee 是一个指向正在执行的函数的指针
+ function factorial(num){
+    if(num<=1){
+        return 1;
+    }
+    else{
+        return num*arguments.callee(num-1);
+    }
+ }
+ var factorial_5=factorial(5);
+ console.log(factorial_5);
+
+  • 超时调用
+    setTimeout( 要执行的代码 ，以毫秒表示的时间 );
+      调用此方法后会返回一个数值ID，表示超时调用, clearTimeout(数值ID) 取消超时调用
+  • 间歇调用
+    setInterval( 要执行的代码 ，以毫秒表示的时间 );
+      调用此方法后会返回一个数值ID，表示间歇调用, clearInterval(数值ID) 取消超时调用
+
+
+  • 阻止事件冒泡
+      △ w3c的方法是e.stopPropagation()
+      △ IE则是使用e.cancelBubble = true
+
+  • 阻止默认行为
+      △ w3c的方法是e.preventDefault()
+      △ e.returnValue = false;
+
+※ DOM2级事件处理程序
+  • addEventListener() 和 removeEventListener()
+
+※ IE事件处理程序
+  • attachEvent() 和 detachEvent()
+
+避免双击
+
+内存和性能
+△ 每个函数都是对象，都会占用内存，内存中的对象越多，性能就越差
+△ 必须事先制定所有事件处理程序而导致的DOM访问次数，会延迟整个页面的交互就绪时间
+※	事件委托
+  • 事件委托利用了事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件
+※	移除事件处理程序
+  • 每当事件处理程序指定给元素时，运行中的浏览器代码与支持页面交互的JavaScript代码之间就会创建连接。连接越多，页面执行起来就越慢
+
+
+1xx:信息响应类，表示接收到请求并且继续处理 
+
+2xx:处理成功响应类，表示动作被成功接收、理解和接受 
+
+3xx:重定向响应类，为了完成指定的动作，必须接受进一步处理 
+
+4xx:客户端错误，客户请求包含语法错误或者是不能正确执行 
+
+5xx:服务端错误，服务器不能正确执行一个正确的请求 
+
+验证Email地址：^\w+[-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$
+
+
+
+
+
+
+
+
+

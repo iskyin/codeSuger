@@ -1,0 +1,61 @@
+# 查看端口号：
+	$ lsof -i tcp:port  （port替换成端口号，比如6379）可以查看该端口被什么程序占用，并显示PID，方便KILL
+
+# kill掉程序
+	$ kill PID	
+ 
+# 修改文件夹权限
+	$ sudo chmod -R 755 xxx(文件夹)
+
+# 链接远程Linux主机
+	$ ssh user@hostname
+
+		注：上边代码为固定格式，其中
+        user 为 linux 服务器的管理员名称
+        hostname 为 linux 服务器的IP
+
+# 删除文件夹
+	$ rm -rf /var/log/httpd/access
+
+	-r 就是向下递归，不管有多少级目录，一并删除
+	-f 就是直接强行删除，不作任何提示的意思
+	
+# 删除文件	
+	$ rm -f /var/log/httpd/access.log
+
+# 显示Mac隐藏文件的命令：
+    $ defaults write com.apple.finder AppleShowAllFiles YES；
+
+# 隐藏Mac隐藏文件的命令：
+    $ defaults write com.apple.finder AppleShowAllFiles NO；
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

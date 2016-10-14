@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello React!</title>
+  <script src="http://www.lenjee.com/reactJS/public/lib/js/react.js"></script>
+  <script src="http://www.lenjee.com/reactJS/public/lib/js/react-dom.js"></script>
+  <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+</head>
+<body>
+
+  <div id="content"></div>
+ 
+<script type="text/javascript">
+  
+
+
+    var H1 = React.createClass({
+      render: function() {
+        return (
+          <h1>
+            Hello, world! 
+            <br></br>
+            <br></br>
+            绑定动态值: {dateToString(new Date())}
+          </h1>
+        );
+      }
+    });
+
+    ReactDOM.render(
+      <H1  />,
+      document.getElementById('content')
+    );
+
+    function dateToString(val){
+      return [val.getFullYear(),val.getMonth()+1,val.getDate()].join('-');
+    };
+</script>
+  
+</body>
+</html>

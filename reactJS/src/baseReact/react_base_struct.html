@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello React!</title>
+  <script src="http://www.lenjee.com/reactJS/public/lib/js/react.js"></script>
+  <script src="http://www.lenjee.com/reactJS/public/lib/js/react-dom.js"></script>
+  <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="container"></div>
+
+<script type="text/babel"  >
+
+  var Hello = React.createClass({
+    render: function() {
+
+      var styleObj={
+        color:'red',
+        fontSize:'50px',
+      };
+
+      return ( <div>
+                <p style={styleObj} > Hello { this.props.name } </p>
+                <p style={{ color:'blue', fontSize:'40px'}}>  { this.props.title } </p>
+               </div>);
+      }
+      
+  });
+
+  ReactDOM.render(
+    <Hello name=" React ! " title=' Nice too meet you ! '/>,
+    document.getElementById('container')
+  );
+
+  document.getElementById('container').style.paddingLeft='100px';
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

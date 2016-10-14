@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello React!</title>
+  <script src="http://www.lenjee.com/reactJS/public/lib/js/react.js"></script>
+  <script src="http://www.lenjee.com/reactJS/public/lib/js/react-dom.js"></script>
+  <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="container"></div>
+
+<script type="text/babel"  >
+	var ToClickComponent=React.createClass({
+
+		handleClick:function(event){
+
+				// this.refs.tip 是虚拟dom节点        
+				var tipRealDOM=this.refs.tip; //获取真实dom节点
+
+				if( tipRealDOM.style.display==="none"){
+					tipRealDOM.style.display='inline';
+				}else{
+					tipRealDOM.style.display='none';
+				}
+
+				// 取消事件冒泡 和 默认事件
+				event.stopPropagation();
+				event.preventDefault();
+		},
+
+		render:function(){
+			
+			return (
+				<div>
+					<button onClick={ this.handleClick } >显示|隐藏</button>
+					<span  ref='tip' >点击测试</span>
+				</div>
+			);
+		}
+
+	});
+
+	var ToInputComponent=React.createClass({
+
+		getInitialState:function(){
+		    return {
+		      inputContent:''
+		    };
+		},
+
+		changeHandleer:function(event){
+
+		 	this.setState({
+		 		inputContent:event.target.value
+		 	});
+
+
+
+	  		// 取消事件冒泡 和 默认事件
+			event.stopPropagation();
+			event.preventDefault();
+
+		},
+	
+		render:function(){
+			return (
+				<div>	
+					<input type="text" onChange={ this.changeHandleer }/>
+					<span>{ this.state.inputContent }</span>
+				</div>
+			);
+		}
+
+
+	}); 
+
+	ReactDOM.render(
+		<div>
+			<ToClickComponent /> 
+			<ToInputComponent />
+		</div>,
+		document.getElementById('container')	
+	);
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+
+# 查看 Apache 版本命令：
+  $ httpd -v
+
+# 运行启动 Apache ：
+  $ sudo apachectl start
+
+# 关闭命令：
+  $ sudo apachectl stop
+
+# 重启命令：
+  $ sudo apachectl restart
+
+
+# ab -c 并发数 -n 请求数 URL
+  $ ab -c 1000 -n 10 http://192.168.1.100:7000/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

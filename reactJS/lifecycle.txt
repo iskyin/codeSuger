@@ -1,0 +1,93 @@
+React Components Lifecycle：
+
+一个组件就是一个状态机：
+	对于特定的输入，它总会返回一致的输出。
+
+React为每个组件提供了生命周期钩子函数去响应不同时刻（ 创建时 、 存在期 、 销毁时 ）。	
+
+每一个状态React都封装了对应的hock函数（ 钩子函数 ）
+
+
+实例化： Mounted ( React.renderComponent() -> Mounted ) :
+	React Components 被render解析成对应的DOM节点
+	并被插入浏览器的DOM结构的一个过程
+
+	使用组件时依次调用的 钩子函数：
+	（1）getDefaultProps():
+			对于组件来说这个方法只会被调用一次，
+			* 任何复杂的值，比如对象和数组，都会在所有的实例中共享（ 而不是拷贝或者克隆 ） 
+
+	（2）getInitialState(): 
+			对于组件的每个实例来说，此方法的调用次数有且只有一次。
+			初始化没个实例的state
+			* 与getDefaultProps方法不同的是，每次实例创建时该方法都会被调用一次。
+				在这个方法里，你已经可以访问到this.props
+
+	（3）componentWillMount():
+			在首次渲染之前被调用（ 在components Mounting之前被调用 ）
+
+	（4）render():
+			这里会创建一个虚拟的DOM，用来表示组件的输出。
+			对一个组件来说，render是唯一一个必须的方法，比企鹅有特定的规则
+				render（）需要满足的条件：
+					1. 只能通过this.props和this.state访问数据
+					2. 可以返回null、false或者任何react组件
+					3. 只能出现一个顶级组件（不能返回一组元素）
+					4. 必须纯净，意味着不能改变组件的状态或者修改DOM的输出
+			* render方法返回的结果不是真正的DOM，而是一个虚拟的表现，react随后会把他和真实的DOM作对比，来判断是否有必要做出修改。
+
+	（5）componentDidMount(): 
+			在render方法成功调用并且真实的DOM已经被渲之后，可以在componentDidMount内部通过this.getDOMNode()方法访问到它
+			* 当React运行在服务端事，componentDidMount方法不会被调用
+
+
+存在期： Update ( update -> setState() OR setProps() -> render() -> update)
+	一个 mounted 的 React Components 被重新 render 的过程
+	此时组件已经渲染好并且用户可以与它进行交互
+
+	依次被调用的 钩子函数：
+	 (1) componentWillReceiveProps():
+	 		在任意时刻，最贱的props都可以通过父辈组件来更改。出现这种情况是，componentWillReceiveProps方法会被调用，你也将获得更改props对象及更新state的机会
+	 (2) shouldComponentUpdate():
+	 		可以在组件渲染时进行精确优化。
+	 		* 在首次渲染器件或者调用了forceUpdate方法后，这个方法不会被调用
+	 		* 如果某个组件或者他的任何子组件不需要渲染新的props或者state，则该方法会返回false。
+	 			（返回false则是告诉react要调过调用render方法，以及位于render气候的钩子函数：componentWillUpdate和conponentDidUpdate）
+	 (3) componentWillUpdate():
+	 		在接收到新的props或者state进行渲染之前，调用该方法
+	 		* 不可以在该方法中更新state或者props。而应该借助componentWillReceiveProps方法在运行时更新state
+	 (4) render():
+	 (5) componentDidUpdate():
+	 		与componentDidMount方法类似
+
+	
+销毁/清理期： Unmounted ( update -> React.unmountAndRelactRootNode() -> unmounted )
+	一个mounted的React Components对应的DOM节点，被从DOM结构中移除的这样一个过程
+	每当React使用完一个组件，这个组件就必须从DOM中卸载后被摧毁
+
+	次期间仅有的一个钩子函数：
+	（1）componentWillUnmount():
+			该方法会在组件被移除之前被调用，此时有机会做一些清理工作。
+
+
+反模式：把计算后的值赋给State
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

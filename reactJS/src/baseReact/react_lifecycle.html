@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello React!</title>
+  <script src="http://www.lenjee.com/reactJS/public/lib/js/react.js"></script>
+  <script src="http://www.lenjee.com/reactJS/public/lib/js/react-dom.js"></script>
+  <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="container"></div>
+
+<script type="text/babel"  >
+
+var Hello = React.createClass({
+  getInitialState:function(){
+    alert('初始化状态：init ！ ');
+    return {
+      color:'red',
+      fontSize:'40px',
+      margin:'50px 0 0 50px'
+    };
+  },
+  
+  render: function() {
+    return <div style={this.state}>Hello {this.props.name}</div>;
+  },
+  
+  componentWillMount:function(){
+      var _self=this;
+      //window.setTimeout(function(){
+        alert(' 在 Components 之前 运行 ！ will ');
+      //},5000);
+  },
+  
+  componentDidMount:function(){
+    alert(' 在 componeted 之后 运行 ！ did ');
+    var _self=this;
+    window.setTimeout(function(){
+       _self.setState({
+           color:'blue',
+           fontSize:'30px'
+       });
+    },3000);
+    
+  }
+  
+  
+});
+
+ReactDOM.render(
+  <Hello name=" React ! " />,
+  document.getElementById('container')
+);
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+******************  virtualBox 配置 ******************
+virtualBox 配置
+  配置虚拟机网络：
+  		设置->网络->连接方式：网络地址转换（NAT）->端口转发
+  		->新建一个规则：主机端口22 转发到子端口22
+   ->重启查看网络：ifconfig
+
+
+******************  sublimetext 配置 ******************
+sublimetext 配置
+1. 多光标编辑： 
+		ctrl+鼠标左键
+2. 包管理工具(control package)：
+	搜索：sublime text3 control package
+	复制下列代码：
+		import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+    ctrl+`
+ 		粘贴上边复制的代码+回车
+3. 重启 sublime text3
+4. ctrl + shift + p
+	-> install Package
+	-> 搜索需要安装的包
+	 		例如：sftp 用语将新改的代码同步到服务器 
+5. 将新建文件夹添加到项目中：
+	Project -> Add Folders to projcet	
+		
+
+******************  安装软件以及查看版本 ******************
+安装epel
+	yum install epel-release
+安装Node.js
+	yum install nodejs
+检查node是否成功安装，查看一下node的版本号
+	node --version
+安装MongoDB服务器版
+	yum install mongodb-server
+安装MongoDB
+	yum install mongodb
+安装redis
+	yum install redis
+查看一下mongodb客户端的版本号
+	mongo --version
+查看一下redis客户端的版本号
+	redis-cli --version
+	
+
+******************  NPM 配置 ******************	
+NPM 包管理工具
+	-> linux 
+		安装：
+			yum install npm
+		升级：
+			sudo npm install npm -g
+		关闭npm的ssl严格认证：
+			npm config set strict-ssl false
+		cnpm（国内镜像源工具：淘宝镜像源）:
+			npm  -g cnpm --registry=https://registry.npm.taobao.org/
+		安装express模块：
+			cnpm install express
+	-> windows  
+		升级：
+			npm install npm -g
+		安装模块：
+			npm install <Module Name>
+		安装express模块：
+			npm install express      # 本地安装
+		安装express模块：
+			npm install express -g   # 全局安装
+nodemon 自动监视文件的变化并重启应用
+pm2 以守候进程的方式启动node 并且可以同时启动多个进程
+node-inspector 调试工具
+Chrome Developer Tools	
+	
+
+******************  express 配置 ******************	
+安装：
+	· yum install npm 
+	· npm install express
+	-> 使用express默认生成的模板
+	· npm install -g express-generator  // 全局安装 express generator 模块
+	· express 项目名字 //使用express模板工具
+	· npm install 执行模块安装
+	· npm install morgan 打印日志模块
+
+
+******************  telnet 配置 ******************	
+安装：
+	yum install telnet
+	 使用：telnet 地址 端口号
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

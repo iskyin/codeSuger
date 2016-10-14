@@ -1,0 +1,5 @@
+mac hosts 路径：
+	/private/etc
+
+
+

@@ -1,0 +1,16 @@
+Promise对象的三种状态：
+
+	未完成(pending)
+
+	已完成(fulfilled)
+
+	失败(rejected)
+
+
+1.callback
+
+2.promise
+
+3.eventproxy
+
+4.generator

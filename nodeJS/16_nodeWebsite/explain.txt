@@ -1,0 +1,35 @@
+后端：
+	npm:
+
+		-> node.js -> express + jade 
+
+		-> mongoDB -> mongoose + moment.js
+
+
+
+前端：
+	bower:
+
+		-> jquery
+
+		-> bootstrap 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

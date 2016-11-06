@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <!--
+			initial-scale=1.0   浏览器按照窗口的实际大小渲染页面
+			user-scalable=no 禁止用户缩放
+			width=device-width 浏览器页面的宽度等于设备宽度
+	    -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>LENJEE</title>
+		<script type="text/javascript">
+			
+			(function (doc, win, undefined) {
+
+			   var docEl = doc.documentElement;
+
+			   resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+			   recalc = function () {
+			     var clientWidth = docEl.clientWidth;
+			     if (!clientWidth) return;
+			     docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+			     console.log("fontSize : "+ 16 * (clientWidth / 320) + 'px')
+			   };
+
+			  if (!doc.addEventListener) return;
+			  win.addEventListener(resizeEvt, recalc, false);
+			  doc.addEventListener('DOMContentLoaded', recalc, false);
+
+			})(document, window);
+
+
+		</script>
+
+		<script type="text/javascript" src="../../node_modules/bluebird/js/browser/bluebird.js"></script>
+
+		<style type="text/css">
+		    body{
+		         padding: 0;
+		         margin: 0;
+		    }
+
+			.ball{
+				width:6.25rem;
+                height:6.25rem;
+                border-radius: 3.125rem;
+                float: left;
+                margin: 5rem 0 0 5px;
+			}
+			
+			.ball1{
+				background-color: red;
+			}
+
+			.ball2{
+				background-color: green;
+			}
+
+			.ball3{
+				background-color: blue;
+			}
+			
+		</style>
+	</head>
+	<body>
+	    <div class="ball ball1"></div>
+	    <div class="ball ball2"></div>
+	    <div class="ball ball3"></div>
+
+        <script type="text/javascript">
+        	
+        	var ball1=document.querySelector('.ball1');
+        	var ball2=document.querySelector('.ball2');
+        	var ball3=document.querySelector('.ball3');
+
+        	function anmate(ball,distance,cb){
+                
+                setTimeout(function(){
+                   var marginLeft=parseInt(ball.style.marginLeft,10);
+
+                   if(marginLeft===distance){
+                   	   cb&&cb();
+                   }
+                   else{
+
+                   	   if(marginLeft<distance){
+                   	   	  marginLeft++;
+                   	   }
+                   	   else{
+                   	   	  marginLeft--;
+                   	   }
+                   	   ball.style.marginLeft=marginLeft;
+                   	   anmate(ball,distance,cb);
+                   }
+
+
+                },17);
+
+        	}
+
+            
+            var Promise=window.Promise;
+
+            function promiseAnimate(function(resolve,reject){
+
+        		function _anmate(){
+                
+                	setTimeout(function(){
+	                   var marginLeft=parseInt(ball.style.marginLeft,10);
+
+	                   if(marginLeft===distance){
+	                   	   resolve&&resolve();
+	                   }
+	                   else{
+
+	                   	   if(marginLeft<distance){
+	                   	   	  marginLeft++;
+	                   	   }
+	                   	   else{
+	                   	   	  marginLeft--;
+	                   	   }
+	                   	   ball.style.marginLeft=marginLeft;
+	                   	   _anmate();
+	                   }
+ 
+	                },17);
+
+        		}
+
+        		_anmate();
+
+            });
+
+            promiseAnimate(ball1,100)
+            .then(function(){
+            	return promiseAnimate(ball2,200);
+            })
+            .then(function(){
+            	return promiseAnimate(ball1,150);
+            })
+
+        </script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

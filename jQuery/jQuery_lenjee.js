@@ -48,10 +48,80 @@
 
 
 
+// 获取客户度大小  内容 + padding 
+function getEleSpace(ele){
+	return{
+		width:ele.clientWidth,
+		height:ele.clientHeight
+	};
+} 
+
+
+// 偏移量  元素在 屏幕 上占用的可见空间
+function getEleLocation(ele){
+	var oHeight=ele.offsetHeight; // content + padding + border
+	var oWidth=ele.offsetWidth;  // content + padding + border
+	var oTop=ele.offsetTop;  // 外边框到包含元素内边框之间
+	var oLeft=ele.offsetLeft;
+
+	// 包含元素的引用保存在offsetParent中
+	var current=ele.offsetParent; 
+
+	while(current!==null){
+		oTop=oTop+current.offsetTop;
+		oLeft=oLeft+current.offsetLeft
+		current=current.offsetParent;
+	}
+
+	return{
+		_height:oHeight,
+		_width:oWidth,
+		_top:oTop,
+		_left:oLeft
+	}
+
+}
+
+
+// 滚动大小
+function getPageSpace(){
+	var ele=document.documentElement;
+	var sWidth=Math.max(ele.scrollWidth,ele.clientWidth); // 网页宽 
+	var sHeight=Math.max(ele.scrollHeight,ele.clientHeight); // 网页高
+
+	var sTop=ele.scrollTop; 
+	var sLeft=ele.scrollLeft;
+
+	return{
+		_width:sWidth,
+		_height:sHeight,
+		_top:sTop,
+		_left:sLeft
+	}
+	
+
+}
 
 
 
-p
+
+// 获取浏览器视口大小
+function getViewSpace(){
+	if(document.getcompatMode=='BackCompat'){// 浏览器是否运行在混杂模式下
+		return{
+			width:document.body.clientWidth,
+			height:document.body.clientHeight
+		};
+	}else{
+		return{
+			width:document.documentElement.clientWidth,
+			height:document.documentElement.clientHeight
+		};
+	}
+}
+
+
+
 
 
 

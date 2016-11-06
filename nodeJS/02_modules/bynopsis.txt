@@ -1,0 +1,27 @@
+exports 与 module.exports 区别
+
+两者实现效果是一样的
+
+exports.add=add;
+ 1. 使模块成为一个传统的模块实例
+ 2. 是module.exports的一个辅助方法
+
+
+module.exports=add; 
+ 1. 使创建的模块成为一个特别的对象类型
+ 2. 支持已经存在的东西
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

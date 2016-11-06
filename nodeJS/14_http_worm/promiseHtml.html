@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <!--
+			initial-scale=1.0   浏览器按照窗口的实际大小渲染页面
+			user-scalable=no 禁止用户缩放
+			width=device-width 浏览器页面的宽度等于设备宽度
+	    -->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>LENJEE</title>
+		<script type="text/javascript">
+			
+			(function (doc, win, undefined) {
+
+			   var docEl = doc.documentElement;
+
+			   resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+			   recalc = function () {
+			     var clientWidth = docEl.clientWidth;
+			     if (!clientWidth) return;
+			     docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+			     console.log("fontSize : "+ 16 * (clientWidth / 320) + 'px')
+			   };
+
+			  if (!doc.addEventListener) return;
+			  win.addEventListener(resizeEvt, recalc, false);
+			  doc.addEventListener('DOMContentLoaded', recalc, false);
+
+			})(document, window);
+
+
+		</script>
+
+		<style type="text/css">
+		    body{
+		         padding: 0;
+		         margin: 0;
+		    }
+
+			.ball{
+				width:3rem;
+               /* border-radius: 3.125rem;*/
+                margin: 2rem auto;
+			}
+			
+			.ball1{
+				background-color: red;
+				padding: 1rem 1rem ;
+			}
+
+		</style>
+	</head>
+	<body>
+	    <div class="ball ball1">
+	    	是粉色粉色粉色粉色是粉色粉色粉色粉色是粉色粉色粉色粉色是粉色粉色粉色粉色是粉色粉色粉色粉色
+	    </div>
+
+        </script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

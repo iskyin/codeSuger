@@ -1,0 +1,63 @@
+# URL 模块
+
+var zhenai="http://m.zhenai.com:8080/v2/login/login.do?uid=null&v=1&channelId=902759&subChannelId=0&signId=-1&logmid=0#floor1"
+
+
+url.parse(zhenai);
+  解析url地址为一个对象
+=>
+   var urlObj={
+             protocol: 'http:',  // 底层使用的协议
+             slashes: true,  // 是否有协议的双斜线
+             auth: null,  
+             host: 'm.zhenai.com:8080',  // ip地址
+             port: '8080',  // 端口号
+             hostname: 'm.zhenai.com',   // 主机名
+             hash: '#floor1',  // 哈希值
+             search: '?uid=null&v=1&channelId=902759&subChannelId=0&signId=-1&logmid=0',  // 查询字符串参数
+             query: 'uid=null&v=1&channelId=902759&subChannelId=0&signId=-1&logmid=0',  // 发送给http服务器的数据 
+             pathname: '/v2/login/login.do',  
+             path: '/v2/login/login.do?uid=null&v=1&channelId=902759&subChannelId=0&signId=-1&logmid=0',  
+           }
+
+url.parse(zhenai,true);
+=>
+  {
+     protocol: 'http:',
+     slashes: true,
+     auth: null,
+     host: 'm.zhenai.com:8080',
+     port: '8080',
+     hostname: 'm.zhenai.com',
+     hash: '#floor1',
+     search: '?uid=null&v=1&channelId=902759&subChannelId=0&signId=-1&logmid=0',
+     query: 
+      { uid: 'null',
+        v: '1',
+        channelId: '902759',
+        subChannelId: '0',
+        signId: '-1',
+        logmid: '0' },
+     pathname: '/v2/login/login.do',
+     path: '/v2/login/login.do?uid=null&v=1&channelId=902759&subChannelId=0&signId=-1&logmid=0',
+     href: 'http://m.zhenai.com:8080/v2/login/login.do?uid=null&v=1&channelId=902759&subChannelId=0&signId=-1&logmid=0#floor1' 
+  }
+
+
+
+url.format(urlObj);
+  将一个url对象格式化为url字符串
+=> 'http://m.zhenai.com:8080/v2/login/login.do?uid=null&v=1&channelId=902759&subChannelId=0&signId=-1&logmid=0#floor1'
+
+
+
+url.resolve('http://www.lenjee.com/','/public/js');
+  拼接两个参数，使其成为一个可以为浏览器识别的url
+=> 'http://www.lenjee.com/public/js'
+
+
+
+
+
+
+

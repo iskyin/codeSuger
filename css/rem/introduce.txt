@@ -1,0 +1,47 @@
+
+网页默认html font-size=16px
+
+
+
+rem是指相对于根元素的字体大小的单位。
+	=> 网页中的根元素指的是html我们通过设置html的字体大小就可以控制rem的大小
+
+rem是一个相对大小的值，它是相对于根元素<html>
+
+
+在Chrome下，默认最下字体为12px,可以设置font-size: 62.5%，其他以此类推
+html 必须 12px 以上大小才行
+
+
+
+
+(function (doc, win, undefined) {
+
+   var docEl = doc.documentElement,
+
+   resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+
+   recalc = function () {
+     var clientWidth = docEl.clientWidth;
+     if (!clientWidth) return;
+     docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+   };
+
+  if (!doc.addEventListener) return;
+  win.addEventListener(resizeEvt, recalc, false);
+  doc.addEventListener('DOMContentLoaded', recalc, false);
+
+})(document, window);
+
+
+
+
+
+
+
+
+
+
+
+
+

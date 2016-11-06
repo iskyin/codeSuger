@@ -19,7 +19,9 @@ var http=require('http');
 var server=http.createServer(function(req,res) {
 	// 设置表头信息   
 	res.writeHead(200,{'Content-Type':'text/plain'});
-	res.end('hello, my nane is bymax! \n');
+
+	res.write('hello , I‘m bymax .')
+	res.end('hello, my nane is bymax! \n'); 
 
 });
 

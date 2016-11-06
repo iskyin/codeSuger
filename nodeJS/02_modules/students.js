@@ -4,7 +4,7 @@ function add(student) {
 }
 
 // 暴露出来
-export.add=add;
+exports.add=add;
 
 
 
